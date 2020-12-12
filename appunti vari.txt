@@ -1,0 +1,14 @@
+designer
+compagnia
+produttore
+svilppatore
+categoria
+sottogenere
+saga
+generazione
+piattaforma
+store
+console
+gioco
+software
+recensione
