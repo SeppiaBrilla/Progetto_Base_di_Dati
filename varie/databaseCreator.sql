@@ -10,7 +10,7 @@ CREATE TABLE Utente(
 CREATE TABLE Prodotto(
 	Nome char(30),
     Anno year,
-    Prezzo decimal(3,2) unsigned,
+    Prezzo decimal(5,2) unsigned,
     Descrizione char(140),
     Produttore char(20) not null references Compagnia(Nome),
     Sviluppatore char(20) not null references Compagnia(Nome),
@@ -29,7 +29,7 @@ CREATE TABLE Designer(
 );
 CREATE TABLE Compagnia(
 	Nome char(20) not null primary key,
-    Fondazione date,
+    Fondazione year,
     Nazionalita char(20)
 );
 CREATE TABLE Store_PC(
@@ -50,8 +50,7 @@ CREATE TABLE Saga(
     check(Stato = "Terminata" or Stato = "In corso")
 );
 CREATE TABLE Generazione(
-	Numero integer not null primary key,
-    Stato char(20)
+	Numero integer not null primary key
 );
 CREATE TABLE Tipologia(
 	Nome_prodotto char(30) not null references Prodotto(Nome),
