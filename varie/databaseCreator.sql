@@ -14,12 +14,10 @@ CREATE TABLE Prodotto(
     Descrizione char(140),
     Produttore char(20) not null references Compagnia(Nome),
     Sviluppatore char(20) not null references Compagnia(Nome),
-    Gioco int references Gioco(Id),
-    PRIMARY KEY(Nome, Anno)
-);
-CREATE TABLE Gioco(
-	Id integer auto_increment not null primary key,
-    Saga char(30) references Saga(Nome)
+    Gioco boolean,
+    Saga char(30) references Saga(Nome),
+    PRIMARY KEY(Nome, Anno),
+    check((Saga IS NOT NULL AND Gioco = True) OR (Saga IS NUll))
 );
 CREATE TABLE Designer(
 	Id integer auto_increment not null primary key,
@@ -41,16 +39,13 @@ CREATE TABLE Console(
     Data_Uscita date,
     Supporto bool,
     Compagnia char(20) not null references Compagnia(Nome),
-    Generazione integer not null references Generazione(Numero)
+    Generazione integer not null
 );
 CREATE TABLE Saga(
 	Nome char(30) not null primary key,
     Descrizione char(140),
     Stato char(20), 
     check(Stato = "Terminata" or Stato = "In corso")
-);
-CREATE TABLE Generazione(
-	Numero integer not null primary key
 );
 CREATE TABLE Tipologia(
 	Nome_prodotto char(30) not null references Prodotto(Nome),
@@ -68,8 +63,9 @@ CREATE TABLE Recensione(
 );
 CREATE TABLE Progettazione(
 	Id_designer integer not null references Designer(Id),
-    Id_gioco integer not null references Gioco(Id),
-    PRIMARY KEY(Id_designer, Id_gioco)
+    Nome char(30) not null references Prodotto(Nome),
+    Anno year not null references Prodotto(Anno),
+    PRIMARY KEY(Id_designer, Nome, Anno)
 );
 CREATE TABLE Disponibilita(
 	Nome_prodotto char(30) not null references Prodotto(Nome),
@@ -81,7 +77,8 @@ CREATE TABLE Disponibilita(
     PRIMARY KEY(Nome_prodotto, Anno, Nome_store)
 );
 CREATE TABLE Riproducibilita(
-	Id char(20) not null references Gioco(Id),
-    Nome char(20) not null references Console(Nome),
-    PRIMARY KEY(Id, Nome)
+	Nome_Gioco char(30) not null references Prodotto(Nome),
+    Anno year not null references Prodotto(Anno),
+    Nome_Console char(20) not null references Console(Nome),
+    PRIMARY KEY(Nome_Gioco, Anno, Nome_Console)
 );

@@ -1,15 +1,15 @@
-Id_designer,Id_gioco
-1,1
-1,5
-1,6
-1,9
-1,10
-1,12
-2,2
-2,3
-2,4
-3,11
-4,11
-5,13
-6,8
-7,7
+Id_designer,Nome,Anno
+1,Goldeneye,1996
+1,"Super Mario Odissey",2018
+1,"Tennis A",1971
+1,"Wii Sport",2008
+1,"Zelda: A Link To The Past",1989
+1,"Zelda: Twilight Princess",2003
+2,"Crash Bandicoot",1999
+2,"Crash Nitro Fuel",2004
+2,"The Last Of Us",2012
+3,Cuphead,2018
+4,Cuphead,2018
+5,"Cyberpunk 2077",2020
+6,"Final Fantasy 2",1980
+7,E.T.,1975
