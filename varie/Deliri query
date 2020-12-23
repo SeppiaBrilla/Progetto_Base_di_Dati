@@ -1,0 +1,43 @@
+inserire categoria
+inserire compagnia
+inserire console
+inserire designer
+inserire disponibilità
+inserire riproducibilità
+inserire software
+inserire gioco e dire quali designer hanno lavorato, e per quale piattaforma, categoria e saga
+inserire recensione
+inserire saga
+inserire store
+inserire utente
+leggere tutte le categorie
+giochi di una categoria - 12
+tutte le compagnie
+tutte le console
+tutti i designer
+giochi di una console per valutazione
+giochi di uno store
+visualizzare tutti i prodotti
+	tutti i giochi x valutazione - 13
+	tutti i software
+i designer che hanno lavorato ad un gioco
+visualizzare le saghe
+visualizzare i giochi di una saga
+visualizzare produttori
+visualizzare sviluppatori
+visualizzare store di compagnia
+visualizzare console di compagnia
+visualizzare le recensioni di un utente
+update voto
+update prezzo gioco - 6
+tutti i sottogeneri di una categoria - 9
+le compagnie con cui ha lavorato un designer - 10
+generazioni con console supportate, data di nascita - 16
+software di un'azienda ordinati per prezzo - 20
+visualizzare chi ha prodotto i giochi di una compagnia (svilupp) - 21
+
+
+*ogni visualizzazione di un Prodotto, accompagnato da media recensioni
+
+una console può non avere giochi (se è appena uscita)
+console check > 0
