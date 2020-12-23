@@ -30,6 +30,7 @@ visualizzare console di compagnia
 visualizzare le recensioni di un utente
 update voto
 update prezzo gioco - 6
+update saga di un gioco
 tutti i sottogeneri di una categoria - 9
 le compagnie con cui ha lavorato un designer - 10
 generazioni con console supportate, data di nascita - 16
@@ -39,5 +40,6 @@ visualizzare chi ha prodotto i giochi di una compagnia (svilupp) - 21
 
 *ogni visualizzazione di un Prodotto, accompagnato da media recensioni
 
-una console può non avere giochi (se è appena uscita)
+
+una console o uno store possono non avere giochi (se è appena uscita)
 console check > 0
