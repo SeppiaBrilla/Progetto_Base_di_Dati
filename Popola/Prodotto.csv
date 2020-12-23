@@ -1,17 +1,17 @@
-Nome,Anno,Prezzo,Descrizione,Produttore,Sviluppatore,Gioco
-"Crash Bandicoot",1999,49.99,"Naughty Dog è di Sony",Sony,Sony,3
-"Crash Nitro Kart",2004,36.99,"Ormai tutti si mettono a guidare le macchinine",Sony,Sony,4
-Cuphead,2018,19.99,"Sei una tazza che spara - Dark souls",Microsoft,"Studio MDHR",11
-"Cyberpunk 2077",2020,59.99,"Un gioco rimandato per essere compatibile con le old gen","CD Project Red","CD Project Red",13
-E.T.,1975,39.99,"Creato in collaborazione con Steven Spielberg",Atari,Atari,7
-"Final Fantasy 2",1980,49.99,"Il più brutto FF","Square Soft","Square Soft",8
-"Garage Band",2008,0.00,"Non è incluso il garage 0/10"-IGN"",Apple,Apple,NULL
-Goldeneye,1996,39.99,"Spara i russi",Nintendo,Nintendo,9
-OneNote,2017,0.00,"Scrivere appunti",Microsoft,Microsoft,NULL
-Outlook,2017,0.00,"Controllare le email",Microsoft,Microsoft,NULL
-"Super Mario Odissey",2018,69.99,"Un gioco di mario ma nuovo",Nintendo,Nintendo,12
-"Tennis A",1971,0.00,"Incluso nella console",Nintendo,Nintendo,1
-"The Last Of Us",2012,60.00,"Still naughty dog",Sony,Sony,2
-"Wii Sport",2006,0.00,"Il gioco più venduto per wii",Nintendo,Nintendo,10
-"Zelda: A Link To The Past",1989,45.99,"Link suona l'ocarina anche qui",Nintendo,Nintendo,6
-"Zelda: Twilight Princess",2003,39.99,"Link è un lupo: 10/10",Nintendo,Nintendo,5
+Nome,Anno,Prezzo,Descrizione,Produttore,Sviluppatore,Gioco,Saga
+"Crash Bandicoot",1999,49.99,"Naughty Dog è di Sony",Sony,Sony,1,"Crash Bandicoot"
+"Crash Nitro Kart",2004,36.99,"Ormai tutti si mettono a guidare le macchinine",Sony,Sony,1,"Crash Bandicoot"
+Cuphead,2018,19.99,"Sei una tazza che spara - Dark souls",Microsoft,"Studio MDHR",1,NULL
+"Cyberpunk 2077",2020,59.99,"Un gioco rimandato per essere compatibile con le old gen","CD Project Red","CD Project Red",1,NULL
+E.T.,1975,39.99,"Creato in collaborazione con Steven Spielberg",Atari,Atari,1,NULL
+"Final Fantasy 2",1980,49.99,"Il più brutto FF","Square Soft","Square Soft",1,NULL
+"Garage Band",2008,0.00,"Non è incluso il garage 0/10-IGN""",Apple,Apple,0,NULL
+Goldeneye,1996,39.99,"Spara i russi",Nintendo,Nintendo,1,NULL
+OneNote,2017,0.00,"Scrivere appunti",Microsoft,Microsoft,0,NULL
+Outlook,2017,0.00,"Controllare le email",Microsoft,Microsoft,0,NULL
+"Super Mario Odissey",2018,69.99,"Un gioco di mario ma nuovo",Nintendo,Nintendo,1,NULL
+"Tennis A",1971,0.00,"Incluso nella console",Nintendo,Nintendo,1,NULL
+"The Last Of Us",2012,60.00,"Still naughty dog",Sony,Sony,1,"The Last Of Us"
+"Wii Sport",2006,0.00,"Il gioco più venduto per wii",Nintendo,Nintendo,1,NULL
+"Zelda: A Link To The Past",1989,45.99,"Link suona l'ocarina anche qui",Nintendo,Nintendo,1,"The Legend Of Zelda"
+"Zelda: Twilight Princess",2003,39.99,"Link è un lupo: 10/10",Nintendo,Nintendo,1,"The Legend Of Zelda"

@@ -12,3 +12,5 @@ console
 gioco
 software
 recensione
+
+eliminazioni del 22/12: entità gioco ed entità generazioni eliminate, etità gioco ha anche il campo Saga

@@ -1,14 +1,14 @@
-Id,Nome
-1,"Color TV Game"
-10,Wii
-11,"Playstation 4"
-11,Switch
-12,Switch
-2,"Playstation 3"
-3,"Playstation 1"
-4,"Playstation 2"
-5,Gamecube
-6,SNES
-7,"Atari 2600"
-8,NES
-9,"Nintendo 64"
+Nome_Gioco,Anno,Nome_Console
+"Crash Bandicoot",1999,"Playstation 1"
+"Crash Nitro Kart",2004,"Playstation 2"
+Cuphead,2018,"Playstation 4"
+Cuphead,2018,Switch
+E.T,1975,"Atari 2006"
+"Final Fantasy 2",1980,NES
+Goldeneye,1996,"Nintendo 64"
+"Super Mario Odissey",2018,Switch
+"Tennis A",1971,"Color TV Game"
+"The Last Of Us",2012,"Playstation 3"
+"Twilight Princess",2003,Gamecube
+"Wii Sport",2006,Wii
+"Zelda: A Link To The Past",1989,SNES
