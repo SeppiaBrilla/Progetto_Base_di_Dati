@@ -1,0 +1,1 @@
+INSERT INTO `Videogiochi_e_software`.`Recensione` (`Nome`, `Anno`, `Utente`, `Voto`) VALUES ('Wii Sport', 2006, 'SeppiaBrilla', '5');

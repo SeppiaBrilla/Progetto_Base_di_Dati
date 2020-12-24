@@ -1,0 +1,1 @@
+INSERT INTO `Videogiochi_e_software`.`Prodotto` (`Nome`, `Anno`, `Prezzo`, `Descrizione`, `Produttore`, `Sviluppatore`, `Gioco`) VALUES ('Skype', 2001, '0.00', 'Videochiamate male', 'Microsoft', 'Microsoft', '0');

@@ -1,0 +1,1 @@
+SELECT Nome FROM Videogiochi_e_software.Categoria;

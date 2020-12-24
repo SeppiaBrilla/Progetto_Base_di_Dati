@@ -1,0 +1,1 @@
+INSERT INTO `Videogiochi_e_software`.`Disponibilita` (`Nome_prodotto`, `Anno`, `Nome_store`, `Processore`, `Scheda_Grafica`, `Os`) VALUES ('Final Fantasy 2', 1980, 'Steam', 'i3', 'integrata', 'Windows 7');

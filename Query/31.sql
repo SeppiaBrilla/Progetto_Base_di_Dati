@@ -1,0 +1,1 @@
+UPDATE `Videogiochi_e_software`.`Recensione` SET `Voto` = '4' WHERE (`Nome` = 'Wii Sport') and (`Anno` = 2006) and (`Utente` = 'SeppiaBrilla');
