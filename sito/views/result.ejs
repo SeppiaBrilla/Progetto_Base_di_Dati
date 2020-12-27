@@ -3,10 +3,12 @@
   <head>
     <title>Result</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
   </head>
   <body>
-    <a href="/">Torna indietro</a>
-    <table style="width: 100%;">
+    <button class="btn-primary" style="margin: 5px;" href="/">Torna indietro</button>
+    <table class="table" style="width: 100%;">
       <thead>
         <tr>
         <% for(att of Object.keys(data[0])) { %>

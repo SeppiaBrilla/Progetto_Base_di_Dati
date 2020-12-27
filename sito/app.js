@@ -13,11 +13,9 @@ connection.connect((err) => {
 const express = require("express");
 
 var app = express();
-
-const {
-  json
-} = require("body-parser");
-var app = express();
+var bodyParser = require('body-parser');
+app.use(bodyParser.json()); // support json encoded bodies
+app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
 app.set("views", __dirname + "/views");
 app.set("view engine", "ejs");
@@ -25,9 +23,14 @@ app.set("view engine", "ejs");
 app.listen(8000, () => {
   console.log('Listening on: https://localhost:8000/')
 });
-app.get("/", (req, res) => {
-  connection.query( "SELECT * FROM Prodotto" , function (err, result) {
+app.post("/query", (req, res) => {
+  connection.query( req.body.query , function (err, result) {
     if (err) throw err;
+    console.log(result);
     res.render("result", {data:result});
   });
+});
+
+app.get("/", (req, res) => {
+  res.render("index");
 });
