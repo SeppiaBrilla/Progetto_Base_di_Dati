@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Result</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <a href="/">Torna indietro</a>
+    <table style="width: 100%;">
+      <thead>
+        <tr>
+        <% for(att of Object.keys(data[0])) { %>
+          <th>   
+            <%= att %>
+          </th>
+           <% } %>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% for(var i=0; i < data.length; i++) { %>
+       <tr>
+
+        <% for(att of Object.keys(data[i])) { %>
+          <td>   
+            <%= data[i][att] %>
+          </td>
+        <% } %>
+
+       </tr>
+        <% } %>
+      </tbody>
+
+    </table>
+  </body>
+</html>
