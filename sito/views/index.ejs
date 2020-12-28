@@ -46,7 +46,8 @@
         "SELECT Generazione, MIN(Data_Uscita) AS Inizio \n FROM Videogiochi_e_software.Console \n WHERE Supporto IS TRUE \n GROUP BY Generazione;",
         "SELECT Prod.Nome AS Nome, Prod.Prezzo AS Prezzo \n FROM Videogiochi_e_software.Prodotto AS Prod INNER JOIN Videogiochi_e_software.Compagnia AS Comp ON Prod.Produttore = Comp.Nome \n WHERE Prod.Gioco IS FALSE AND Comp.Nome=$1 \n ORDER BY Prod.Prezzo;",
         "SELECT DISTINCT Prod.Sviluppatore AS Sviluppatori \n ROM Videogiochi_e_software.Compagnia AS Comp INNER JOIN Videogiochi_e_software.Prodotto AS Prod ON Comp.Nome = Prod.Produttore \n WHERE Comp.Nome = $1 AND Prod.Gioco IS TRUE;",
-        "INSERT INTO `Videogiochi_e_software`.`Tipologia` (`Nome_prodotto`, `Anno`, `Nome_Categoria`) VALUES ($1, $2, $3);"
+        "INSERT INTO `Videogiochi_e_software`.`Tipologia` (`Nome_prodotto`, `Anno`, `Nome_Categoria`) VALUES ($1, $2, $3);",
+        "INSERT INTO `Videogiochi_e_software`.`Progettazione` (`Id_designer`, `Nome`, `Anno`) VALUES ($1, $2, $3);"
         ];
         $(document).ready(()=>{
             //$("#query").html(queries[$("#select").val()]);
@@ -81,7 +82,7 @@
     <div class="d-flex flex-column mx-auto">
         <div class="col-md-5 mx-auto">
             <select class="form-select mx-auto" id="select">
-                <% for(let i = 1; i<39; i++){ %>
+                <% for(let i = 1; i<41; i++){ %>
                 <option value="<%=i%>"><%=i%></option>
                 <% } %>
             </select>
@@ -96,7 +97,7 @@
             </form>
         </div>
         <div class="queryform mx-auto" id="2">
-            <h1>Inserire una categoria</h1>
+            <h1>Inserire una compagnia</h1>
             <form action="/query" class="d-flex flex-column">
                 <input type="text" name="1" placeholder="Nome Compagnia">
                 <input type="number" name="2" placeholder="Fondazione Compagnia">
@@ -104,17 +105,17 @@
             </form>
         </div>
         <div class="queryform mx-auto" id="3">
-            <h1>Inserire una categoria</h1>
+            <h1>Inserire una console</h1>
             <form action="/query" class="d-flex flex-column">
                 <input type="text" name="1" placeholder="Nome Console">
                 <input type="text" name="2" placeholder="Data Uscita Console AAAA-DD-MM">
-                <input type="number" name="3" min="0" min="1" placeholder="Supporto Console">
+                <input type="number" name="3" min="0" max="1" placeholder="Supporto Console">
                 <input type="text" name="4" placeholder="Compagnia della Console">
                 <input type="number" name="5" placeholder="Generazione Console">
             </form>
         </div>
         <div class="queryform mx-auto" id="4">
-            <h1>Inserire una categoria</h1>
+            <h1>Inserire un designer</h1>
             <form action="/query" class="d-flex flex-column">
                 <input type="text" name="1" placeholder="Nome Designer">
                 <input type="text" name="2" placeholder="Cognome Designer">
@@ -122,7 +123,7 @@
             </form>
         </div>
         <div class="queryform mx-auto" id="5">
-            <h1>Inserire una categoria</h1>
+            <h1>Inserire la disponibilità di un prodotto per uno store PC</h1>
             <form action="/query" class="d-flex flex-column">
                 <input type="text" name="1" placeholder="Nome Prodotto">
                 <input type="number" name="2" placeholder="Anno Prodotto">
@@ -133,7 +134,7 @@
             </form>
         </div>
         <div class="queryform mx-auto" id="6">
-            <h1>Inserire una categoria</h1>
+            <h1>Inserire la riproducibilità  di un gioco per una console</h1>
             <form action="/query" class="d-flex flex-column">
                 <input type="text" name="1" placeholder="Nome Gioco">
                 <input type="number" name="2" placeholder="Anno Gioco">
@@ -141,7 +142,7 @@
             </form>
         </div>
         <div class="queryform mx-auto" id="7">
-            <h1>Inserire una categoria</h1>
+            <h1>Inserire un software</h1>
             <form action="/query" class="d-flex flex-column">
                 <input type="text" name="1" placeholder="Nome Software">
                 <input type="number" name="2" placeholder="Anno Software">
@@ -153,7 +154,7 @@
             </form>
         </div>
         <div class="queryform mx-auto" id="8">
-            <h1>Inserire una categoria</h1>
+            <h1>Inserire un gioco con designer hanno lavorato, per quale piattaforme è disponibile, categorie e saghe di appartenenza</h1>
             <form action="/query" class="d-flex flex-column">
                 <input type="text" name="1" placeholder="Nome Gioco">
                 <input type="number" name="2" placeholder="Anno Gioco">
@@ -165,9 +166,9 @@
                 <input type="text" name="8" placeholder="ID Designer">
                 <input type="text" name="9" placeholder="Nome Categoria">
             </form>
-        </div> <!-- modifica fin qui -->
+        </div>
         <div class="queryform mx-auto" id="9">
-            <h1>Inserire una categoria</h1>
+            <h1>Inserire una recensione</h1>
             <form action="/query" class="d-flex flex-column">
                 <input type="text" name="1" placeholder="Nome Prodotto">
                 <input type="number" name="2" placeholder="Anno Prodotto">
@@ -176,7 +177,7 @@
             </form>
         </div>
         <div class="queryform mx-auto" id="10">
-            <h1>Inserire una categoria</h1>
+            <h1>Inserire una saga</h1>
             <form action="/query" class="d-flex flex-column">
                 <input type="text" name="1" placeholder="Nome Saga">
                 <input type="text" name="2" placeholder="Descrizione Saga">
@@ -186,119 +187,119 @@
             </form>
         </div>
         <div class="queryform mx-auto" id="11">
-            <h1>Inserire una categoria</h1>
+            <h1>Inserire uno store</h1>
             <form action="/query" class="d-flex flex-column">
                 <input type="text" name="1" placeholder="Nome Store">
                 <input type="text" name="2" placeholder="Nome Compagnia">
             </form>
         </div>
         <div class="queryform mx-auto" id="12">
-            <h1>Inserire una categoria</h1>
+            <h1>Inserire un utente</h1>
             <form action="/query" class="d-flex flex-column">
                 <input type="text" name="1" placeholder="Nickname Utente">
             </form>
         </div>
         <div class="queryform mx-auto" id="13">
-            <h1>Inserire una categoria</h1>
+            <h1>Visualizzare tutte le categorie</h1>
             <form action="/query" class="d-flex flex-column">
             </form>
         </div>
         <div class="queryform mx-auto" id="14">
-            <h1>Inserire una categoria</h1>
+            <h1>Visualizzare tutti i videogiochi di una categoria</h1>
             <form action="/query" class="d-flex flex-column">
                 <input type="text" name="1" placeholder="Nome Categoria">
             </form>
         </div>
         <div class="queryform mx-auto" id="15">
-            <h1>Inserire una categoria</h1>
+            <h1>Visualizzare tutte le compagnie</h1>
             <form action="/query" class="d-flex flex-column">
             </form>
         </div>
         <div class="queryform mx-auto" id="16">
-            <h1>Inserire una categoria</h1>
+            <h1>Visualizzare tutte le console</h1>
             <form action="/query" class="d-flex flex-column">
             </form>
         </div>
         <div class="queryform mx-auto" id="17">
-            <h1>Inserire una categoria</h1>
+            <h1>Visualizzare tutti i designer</h1>
             <form action="/query" class="d-flex flex-column">
             </form>
         </div>
         <div class="queryform mx-auto" id="18">
-            <h1>Inserire una categoria</h1>
+            <h1>Visualizzare i giochi di una console ordinati per valutazione</h1>
             <form action="/query" class="d-flex flex-column">
                 <input type="text" name="1" placeholder="Nome Console">
             </form>
         </div>
         <div class="queryform mx-auto" id="19">
-            <h1>Inserire una categoria</h1>
+            <h1>Visualizzare i giochi di uno store</h1>
             <form action="/query" class="d-flex flex-column">
                 <input type="text" name="1" placeholder="Nome Store">
             </form>
         </div>
         <div class="queryform mx-auto" id="20">
-            <h1>Inserire una categoria</h1>
+            <h1>Visualizzare tutti i prodotti</h1>
             <form action="/query" class="d-flex flex-column">
             </form>
         </div>
         <div class="queryform mx-auto" id="21">
-            <h1>Inserire una categoria</h1>
+            <h1>Visualizzare tutti i giochi ordinati per valutazione</h1>
             <form action="/query" class="d-flex flex-column">
             </form>
         </div>
         <div class="queryform mx-auto" id="22">
-            <h1>Inserire una categoria</h1>
+            <h1>Visualizzare tutti i software</h1>
             <form action="/query" class="d-flex flex-column">
             </form>
         </div>
         <div class="queryform mx-auto" id="23">
-            <h1>Inserire una categoria</h1>
+            <h1>Visualizzare tutti i designer che hanno lavorato ad un gioco </h1>
             <form action="/query" class="d-flex flex-column">
                 <input type="text" name="1" placeholder="Nome Gioco">
                 <input type="number" name="2" placeholder="Anno Gioco">
             </form>
         </div>
         <div class="queryform mx-auto" id="24">
-            <h1>Inserire una categoria</h1>
+            <h1>Visualizzare tutte le saghe</h1>
             <form action="/query" class="d-flex flex-column">
             </form>
         </div>
         <div class="queryform mx-auto" id="25">
-            <h1>Inserire una categoria</h1>
+            <h1>Visualizzare tutti i giochi di una saga</h1>
             <form action="/query" class="d-flex flex-column">
                 <input type="text" name="1" placeholder="Nome Saga">
             </form>
         </div>
         <div class="queryform mx-auto" id="26">
-            <h1>Inserire una categoria</h1>
+            <h1>Visualizzare tutti i produttori</h1>
             <form action="/query" class="d-flex flex-column">
             </form>
         </div>
         <div class="queryform mx-auto" id="27">
-            <h1>Inserire una categoria</h1>
+            <h1>Visualizzare tutti gli sviluppatori</h1>
             <form action="/query" class="d-flex flex-column">
             </form>
         </div>
         <div class="queryform mx-auto" id="28">
-            <h1>Inserire una categoria</h1>
+            <h1>Visualizzare tutti gli store di una compagnia</h1>
             <form action="/query" class="d-flex flex-column">
                 <input type="text" name="1" placeholder="Nome Compagnia">
             </form>
         </div>
         <div class="queryform mx-auto" id="29">
-            <h1>Inserire una categoria</h1>
+            <h1>Visualizzare tutte le console di una compagnia</h1>
             <form action="/query" class="d-flex flex-column">
                 <input type="text" name="1" placeholder="Nome Compagnia">
             </form>
         </div>
         <div class="queryform mx-auto" id="30">
-            <h1>Inserire una categoria</h1>
+            <h1>Visualizzare tutte le recensioni di un utente</h1>
             <form action="/query" class="d-flex flex-column">
                 <input type="text" name="1" placeholder="Nickname Utente">
             </form>
         </div>
         <div class="queryform mx-auto" id="31">
-            <h1>Inserire una categoria</h1>
+            <h1>Aggiornare il voto di una recensione</h1>
             <form action="/query" class="d-flex flex-column">
                 <input type="number" min="1" max="5" name="1" placeholder="Voto">
                 <input type="text" name="2" placeholder="Nome Gioco">
@@ -307,7 +308,7 @@
             </form>
         </div>
         <div class="queryform mx-auto" id="32">
-            <h1>Inserire una categoria</h1>
+            <h1>Aggiornare il prezzo di un gioco</h1>
             <form action="/query" class="d-flex flex-column">
                 <input type="number" name="1" min="0" step=".01" placeholder="Nuovo Prezzo">
                 <input type="text" name="2" placeholder="Nome Prodotto">
@@ -315,7 +316,7 @@
             </form>
         </div>
         <div class="queryform mx-auto" id="33">
-            <h1>Inserire una categoria</h1>
+            <h1>Aggiornare la saga di un gioco</h1>
             <form action="/query" class="d-flex flex-column">
                 <input type="text" name="1" placeholder="Nome Saga">
                 <input type="text" name="2" placeholder="Nome Prodotto">
@@ -323,30 +324,30 @@
             </form>
         </div>
         <div class="queryform mx-auto" id="34">
-            <h1>Inserire una categoria</h1>
+            <h1>Visualizzare tutti i sottogeneri di una categoria</h1>
             <form action="/query" class="d-flex flex-column">
                 <input type="text" name="1" placeholder="Nome Genere">
             </form>
         </div>
         <div class="queryform mx-auto" id="35">
-            <h1>Inserire una categoria</h1>
+            <h1>Visualizzare tutte le compagnie per cui ha lavorato un designer</h1>
             <form action="/query" class="d-flex flex-column">
-                <input type="text" name="1" placeholder="Nome Categoria">
+                <input type="number" name="1" placeholder="ID Designer">
             </form>
         </div>
         <div class="queryform mx-auto" id="36">
-            <h1>Inserire una categoria</h1>
+            <h1>Visualizzare tutte le generazioni supportate con la loro data di nascita</h1>
             <form action="/query" class="d-flex flex-column">
             </form>
         </div>
         <div class="queryform mx-auto" id="37">
-            <h1>Inserire una categoria</h1>
+            <h1>Visualizzare tutti i software di un’azienda ordinati per prezzo</h1>
             <form action="/query" class="d-flex flex-column">
                 <input type="text" name="1" placeholder="Nome Compagnia">
             </form>
         </div>
         <div class="queryform mx-auto" id="38">
-            <h1>Inserire una categoria</h1>
+            <h1>Visualizzare chi ha prodotto i prodotti sviluppati da una compagnia</h1>
             <form action="/query" class="d-flex flex-column">
                 <input type="text" name="1" placeholder="Nome Compagnia">
             </form>
@@ -359,9 +360,17 @@
                 <input type="text" name="3" placeholder="Nome Categoria">
             </form>
         </div>
-        <form action="/query" method="POST" class="mx-auto col-md-12">
+        <div class="queryform mx-auto" id="40">
+            <h1>Inserire una categoria</h1>
+            <form action="/query" class="d-flex flex-column">
+                <input type="number" name="1" placeholder="ID Designer">
+                <input type="text" name="2" placeholder="Nome Gioco">
+                <input type="number" name="3" placeholder="Anno Gioco">
+            </form>
+        </div>
+        <form action="/query" method="POST" class="mx-auto col-md-1">
             <input type="text" name="query" id="stampoqui" hidden>
-            <input type="submit" id="send" class="col-md-1 mx-auto" value="esegui">
+            <input type="submit" id="send" value="esegui">
         </form>
     </div>
   </body>
