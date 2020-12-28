@@ -24,11 +24,21 @@ app.listen(8000, () => {
   console.log('Listening on: https://localhost:8000/')
 });
 app.post("/query", (req, res) => {
-  connection.query( req.body.query , function (err, result) {
-    if (err) throw err;
-    console.log(result);
-    res.render("result", {data:result});
-  });
+  if(req.body.query.includes("INSERT")){
+    let commands = req.body.query.split(";");
+    for(let i = 0; i<commands.length-1; i++){
+      connection.query(commands[i]+";" , function (err, result) {
+      if (err) throw err;
+      })
+    }
+    res.render("result", {data:"NO", query: req.body.query});
+  }else{
+    connection.query(req.body.query , function (err, result) {
+      if (err) throw err;
+      console.log(result);
+      res.render("result", {data:result, query: req.body.query});
+    });
+  }
 });
 
 app.get("/", (req, res) => {
