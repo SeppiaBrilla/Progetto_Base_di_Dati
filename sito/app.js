@@ -25,7 +25,7 @@ app.listen(8000, () => {
 });
 app.post("/query", (req, res) => {
   try {
-    if(req.body.query.includes("INSERT")){
+    if(req.body.query.includes("INSERT") || req.body.query.includes("UPDATE")){
       let commands = req.body.query.split(";");
       for(let i = 0; i<commands.length-1; i++){
         connection.query(commands[i]+";" , function (err, result) {
