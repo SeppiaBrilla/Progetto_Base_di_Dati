@@ -31,7 +31,7 @@
         "SELECT Nome, Anno, Prezzo Descrizione, Produttore, Sviluppatore, Saga, Valutazione \n FROM Videogiochi_e_software.ProdRecen \n WHERE Gioco IS TRUE \n ORDER BY Valutazione DESC;",
         "SELECT Nome, Anno, Prezzo Descrizione, Produttore, Sviluppatore, Saga, Valutazione \n FROM Videogiochi_e_software.ProdRecen \n WHERE Gioco IS FALSE;",
         "SELECT Des.Nome AS Nome, Des.Cognome AS Cognome, Des.Nazionalita AS Nazionalita \n FROM Videogiochi_e_software.Designer AS Des INNER JOIN ( \n SELECT id_designer \n FROM Videogiochi_e_software.Progettazione NATURAL JOIN Videogiochi_e_software.Prodotto \n WHERE Nome=$1 AND Anno=$2) AS Id ON Des.Id = Id.Id_designer;",
-        "SELECT * FROM Videogiochi_e_software.Saga;",
+        "SELECT S.Nome AS Nome, S.Descrizione AS Descrizione, S.Stato AS Stato, MIN(P.Anno) AS Nascita \n FROM Videogiochi_e_software.Saga as S, Videogiochi_e_software.Prodotto AS P \n WHERE P.Saga = S.Nome \n GROUP BY S.Nome \n ORDER BY MIN(P.Anno);",
         "SELECT P.Nome AS Nome, P.Anno AS Anno, P.Prezzo AS Prezzo, P.Descrizione AS Descrizione, P.Valutazione as Valutazione \n FROM Videogiochi_e_software.ProdRecen AS P INNER JOIN Videogiochi_e_software.Saga AS S ON P.Saga = S.Nome \n WHERE S.Nome=$1 AND P.Gioco IS TRUE;",
         "SELECT DISTINCT C.Nome AS Compagnie \n FROM Videogiochi_e_software.Compagnia AS C INNER JOIN Videogiochi_e_software.Prodotto AS P ON C.Nome = P.Produttore;",
         "SELECT DISTINCT C.Nome AS Compagnie \n FROM Videogiochi_e_software.Compagnia AS C INNER JOIN Videogiochi_e_software.Prodotto AS P ON C.Nome = P.Sviluppatore;",
