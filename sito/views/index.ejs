@@ -41,7 +41,7 @@
         "UPDATE `Recensione` SET `Voto` = $1 WHERE (`Nome` = $2) and (`Anno` = $3) and (`Utente` = $4);",
         "UPDATE `Prodotto` SET `Prezzo` = $1 WHERE (`Nome` = $2) and (`Anno` = $3);",
         "UPDATE `Prodotto` SET `Saga` = $1 WHERE (`Nome` = $2) and (`Anno` = $3);",
-        "WITH RECURSIVE Principale(Derivato, Derivante) AS \n (	SELECT Nome, derivazione \n FROM Categoria \n UNION ALL \n SELECT Nome, Derivante \n FROM Principale, Categoria \n WHERE Derivato = derivazione \n ) \n SELECT Derivato as Categorie \n FROM Principale \n WHERE Derivante = $1;",
+        "WITH RECURSIVE Principale(Derivato, Derivante) AS \n (SELECT Nome, derivazione \n FROM Categoria \n UNION ALL \n SELECT Nome, Derivante \n FROM Principale, Categoria \n WHERE Derivato = derivazione \n ) \n SELECT Derivato as Categorie \n FROM Principale \n WHERE Derivante = $1;",
         "SELECT DISTINCT Compagnia.Nome AS Nome, Compagnia.Fondazione AS Fondazione, Compagnia.Nazionalita AS Nazionalita \n FROM Designer, Progettazione,  \n Prodotto, Compagnia \n WHERE Designer.Id = Progettazione.Id_designer AND Progettazione.Nome = Prodotto.Nome AND Progettazione.Anno = Prodotto.Anno AND Prodotto.Produttore = Compagnia.Nome AND Prodotto.Sviluppatore = Compagnia.Nome AND Designer.Id = $1;",
         "SELECT Generazione, MIN(Data_Uscita) AS Inizio \n FROM Console \n WHERE Supporto IS TRUE \n GROUP BY Generazione;",
         "SELECT Prod.Nome AS Nome, Prod.Prezzo AS Prezzo \n FROM Prodotto AS Prod INNER JOIN Compagnia AS Comp ON Prod.Produttore = Comp.Nome \n WHERE Prod.Gioco IS FALSE AND Comp.Nome=$1 \n ORDER BY Prod.Prezzo;",

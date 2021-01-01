@@ -1,5 +1,5 @@
 WITH RECURSIVE Principale(Derivato, Derivante) AS 
-(	SELECT Nome, derivazione
+(	SELECT *
 	FROM Videogiochi_e_software.Categoria
     UNION ALL
     SELECT Nome, Derivante
