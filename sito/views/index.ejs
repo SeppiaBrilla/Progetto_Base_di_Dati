@@ -45,7 +45,7 @@
         "SELECT DISTINCT Compagnia.Nome AS Nome, Compagnia.Fondazione AS Fondazione, Compagnia.Nazionalita AS Nazionalita \n FROM Designer, Progettazione,  \n Prodotto, Compagnia \n WHERE Designer.Id = Progettazione.Id_designer AND Progettazione.Nome = Prodotto.Nome AND Progettazione.Anno = Prodotto.Anno AND Prodotto.Produttore = Compagnia.Nome AND Prodotto.Sviluppatore = Compagnia.Nome AND Designer.Id = $1;",
         "SELECT Generazione, MIN(Data_Uscita) AS Inizio \n FROM Console \n WHERE Supporto IS TRUE \n GROUP BY Generazione;",
         "SELECT Prod.Nome AS Nome, Prod.Prezzo AS Prezzo \n FROM Prodotto AS Prod INNER JOIN Compagnia AS Comp ON Prod.Produttore = Comp.Nome \n WHERE Prod.Gioco IS FALSE AND Comp.Nome=$1 \n ORDER BY Prod.Prezzo;",
-        "SELECT DISTINCT Prod.Sviluppatore AS Sviluppatori \n ROM Compagnia AS Comp INNER JOIN Prodotto AS Prod ON Comp.Nome = Prod.Produttore \n WHERE Comp.Nome = $1 AND Prod.Gioco IS TRUE;",
+        "SELECT DISTINCT Prod.Produttore AS Produttori \n FROM Compagnia AS Comp INNER JOIN Prodotto AS Prod ON Comp.Nome = Prod.Produttore \n WHERE Prod.Sviluppatore = $1 AND Prod.Gioco IS TRUE;",
         "INSERT INTO `Tipologia` (`Nome_prodotto`, `Anno`, `Nome_Categoria`) VALUES ($1, $2, $3);",
         "INSERT INTO `Progettazione` (`Id_designer`, `Nome`, `Anno`) VALUES ($1, $2, $3);",
         "UPDATE `Console` SET `Supporto` = $1 WHERE (`Nome` = $2);"
